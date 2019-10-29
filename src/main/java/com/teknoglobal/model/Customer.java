@@ -15,7 +15,6 @@ public class Customer {
 	private String name;
 	private String userName;
 	private String password;
-	private String alamat;
 	private String email;
 	private String phone;
 	private String roleUser;
@@ -24,11 +23,10 @@ public class Customer {
 		
 	}
 	
-	public Customer(String name, String userName, String password, String alamat, String email, String phone, String roleUser) {
+	public Customer(String name, String userName, String password, String email, String phone, String roleUser) {
 		this.name = name;
 		this.userName = userName; 
 		this.password = password;		
-		this.alamat = alamat;
 		this.email = email;
 		this.phone = phone;
 		this.roleUser=roleUser;
@@ -67,15 +65,6 @@ public class Customer {
 		this.password = password;
 	}
 	
-	@Column(name = "alamat", nullable = false)
-	public String getAlamat() {
-		return alamat;
-	}
-
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
-	}
-	
 	@Column(name = "email", nullable = false)
 	public String getEmail() {
 		return email;
@@ -104,7 +93,7 @@ public class Customer {
 	@Override
 	public String toString() {
 	return "Users [id=" + id + ", name=" + name + ", userName=" + userName + ", password= " + password
-				+ ", alamat= "+ alamat + ", email=" + email + ", phone= "+ phone  + ",role="+ roleUser +"]";
+				+ ", email=" + email + ", phone= "+ phone  + ",role="+ roleUser +"]";
 	}
 
 	

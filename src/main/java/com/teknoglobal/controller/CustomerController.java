@@ -89,7 +89,6 @@ public class CustomerController {
 		customer.setName(customerDetails.getName());
 		customer.setUserName(customerDetails.getUserName());
 		customer.setPassword(customerDetails.getPassword());
-		customer.setAlamat(customerDetails.getAlamat());
 		customer.setEmail(customerDetails.getEmail());
 		customer.setPhone(customerDetails.getPhone());
 		customer.setRoleUser(customerDetails.getRoleUser());
