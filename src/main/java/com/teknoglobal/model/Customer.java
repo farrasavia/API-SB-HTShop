@@ -107,5 +107,4 @@ public class Customer {
 				+ ", alamat= "+ alamat + ", email=" + email + ", phone= "+ phone  + ",role="+ roleUser +"]";
 	}
 
-	
 }
