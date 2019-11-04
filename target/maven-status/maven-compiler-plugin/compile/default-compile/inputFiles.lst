@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\controller\CustomerController.java
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\config\SecurityConfig.java
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\exception\ResourceNotFoundException.java
@@ -6,3 +7,13 @@ D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\exception\Glob
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\exception\ErrorDetails.java
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\model\Customer.java
 D:\HTShop_Teknoglobal\ProjectSpring\src\main\java\com\teknoglobal\repository\CustomerRepository.java
+=======
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\exception\ErrorDetails.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\config\SecurityConfig.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\repository\CustomerRepository.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\controller\CustomerController.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\exception\ResourceNotFoundException.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\exception\GlobalExceptionHandler.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\Application.java
+D:\tugas\project-htshop\ProjectSpring\src\main\java\com\teknoglobal\model\Customer.java
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4

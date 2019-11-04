@@ -87,6 +87,7 @@ public class CustomerController {
 	}
 	
 	@CrossOrigin
+<<<<<<< HEAD
 	@PutMapping("/users/{id}")
 	public ResponseEntity<Customer> updateUsers(@PathVariable(value = "id") Long usersId,
 			@Valid @RequestBody Customer usersDetails) throws ResourceNotFoundException {
@@ -101,6 +102,22 @@ public class CustomerController {
 		users.setRole(usersDetails.getRole());
 		final Customer updatedUsers = usersRepository.save(users);
 		return ResponseEntity.ok(updatedUsers);
+=======
+	@PutMapping("/customer/{id}")
+	public ResponseEntity<Customer> updatecustomer(@PathVariable(value = "id") Long customerId,
+			@Valid @RequestBody Customer customerDetails) throws ResourceNotFoundException {
+		Customer customer = customerRepository.findById(customerId)
+				.orElseThrow(() -> new ResourceNotFoundException("customer not found for this id :: " + customerId));
+
+		customer.setName(customerDetails.getName());
+		customer.setUserName(customerDetails.getUserName());
+		customer.setPassword(customerDetails.getPassword());
+		customer.setEmail(customerDetails.getEmail());
+		customer.setPhone(customerDetails.getPhone());
+		customer.setRoleUser(customerDetails.getRoleUser());
+		final Customer updatedcustomer = customerRepository.save(customer);
+		return ResponseEntity.ok(updatedcustomer);
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4
 	}
 	
 	@CrossOrigin

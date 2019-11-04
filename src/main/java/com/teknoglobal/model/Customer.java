@@ -16,18 +16,34 @@ public class Customer {
 	private String lastName;
     private String email;
 	private String password;
+<<<<<<< HEAD
 	private String role;
+=======
+	private String email;
+	private String phone;
+	private String roleUser;
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4
 	
 	public Customer() {
 		
 	}
 	
+<<<<<<< HEAD
 	public Customer(String firstName, String lastName, String email, String password, String role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
         this.email = email;
 		this.password = password;
 		this.role=role;
+=======
+	public Customer(String name, String userName, String password, String email, String phone, String roleUser) {
+		this.name = name;
+		this.userName = userName; 
+		this.password = password;		
+		this.email = email;
+		this.phone = phone;
+		this.roleUser=roleUser;
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4
 	}
 	
 	@Id
@@ -51,8 +67,13 @@ public class Customer {
 	public String getLastName() {
 		return lastName;
 	}
+<<<<<<< HEAD
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+=======
+	public void setPassword(String password) {
+		this.password = password;
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4
 	}
 	
 	@Column(name = "email", nullable = false)
@@ -81,8 +102,13 @@ public class Customer {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 	return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ",role="+role+"]";
+=======
+	return "Users [id=" + id + ", name=" + name + ", userName=" + userName + ", password= " + password
+				+ ", email=" + email + ", phone= "+ phone  + ",role="+ roleUser +"]";
+>>>>>>> 8813a76314af5011bb755b90a01217001e494bd4
 	}
 	
 }
