@@ -8,30 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "users")
 public class Customer {
 
 	private long id;
-	private String name;
-	private String userName;
+	private String firstName;
+	private String lastName;
+    private String email;
 	private String password;
-	private String alamat;
-	private String email;
-	private String phone;
-	private String roleUser;
+	private String role;
 	
 	public Customer() {
 		
 	}
 	
-	public Customer(String name, String userName, String password, String alamat, String email, String phone, String roleUser) {
-		this.name = name;
-		this.userName = userName; 
-		this.password = password;		
-		this.alamat = alamat;
-		this.email = email;
-		this.phone = phone;
-		this.roleUser=roleUser;
+	public Customer(String firstName, String lastName, String email, String password, String role) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+        this.email = email;
+		this.password = password;
+		this.role=role;
 	}
 	
 	@Id
@@ -43,37 +39,20 @@ public class Customer {
 		this.id = id;
 	}
 	
-	@Column(name = "name", nullable = false)
-	public String getName() {
-		return name;
+	@Column(name = "first_name", nullable = false)
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Column(name = "username", nullable = false)
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-    @Column(name = "password", nullable = false)
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
-	@Column(name = "alamat", nullable = false)
-	public String getAlamat() {
-		return alamat;
+	@Column(name = "last_name", nullable = false)
+	public String getLastName() {
+		return lastName;
 	}
-
-	public void setAlamat(String alamat) {
-		this.alamat = alamat;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	@Column(name = "email", nullable = false)
@@ -84,27 +63,26 @@ public class Customer {
 		this.email = email;
     }
 
-	@Column(name = "phone", nullable = false)
-	public String getPhone() {
-		return phone;
+    @Column(name = "password", nullable = false)
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	@Column(name = "role", nullable = false)
+	public String getRole() {
+		return role;
 	}
-	
-	@Column(name = "role_user", nullable = false)
-	public String getRoleUser() {
-		return roleUser;
-	}
-	public void setRoleUser(String roleUser) {
-		this.roleUser = roleUser;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
-	return "Users [id=" + id + ", name=" + name + ", userName=" + userName + ", password= " + password
-				+ ", alamat= "+ alamat + ", email=" + email + ", phone= "+ phone  + ",role="+ roleUser +"]";
+	return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ",role="+role+"]";
 	}
-
+	
 }

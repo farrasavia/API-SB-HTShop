@@ -29,82 +29,88 @@ import com.teknoglobal.exception.ResourceNotFoundException;
 import com.teknoglobal.model.Customer;
 import com.teknoglobal.repository.CustomerRepository;
 
+
+
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v9")
 public class CustomerController {
 	@Autowired
-	private CustomerRepository customerRepository;
+	private CustomerRepository usersRepository;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	
 	@CrossOrigin
-	@GetMapping("/customer")
-	public List<Customer> getAllCustomer() {
-		return customerRepository.findAll();
+	@GetMapping("/users")
+	public List<Customer> getAllUsers() {
+		return usersRepository.findAll();
 	}
 	
 	//TEST
 	@CrossOrigin
-	@GetMapping("/login/{email}/{password}")
-	public ResponseEntity<Customer> getCustomerByEmailAndPassword(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password)
+	@GetMapping("/users/{email}/{password}")
+	public ResponseEntity<Customer> getUserByEmailAndPassword(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password)
 			throws ResourceNotFoundException {
-		Customer customer = customerRepository.findByEmailAndPassword(email, password);
-		return ResponseEntity.ok().body(customer);
+//		System.out.print("password" + password);
+//		System.out.print("email" + email);
+		Customer users = usersRepository.findByEmailAndPassword(email, password);
+//		System.out.print("dsasdasdasdasdasd" + users);
+		return ResponseEntity.ok().body(users);
 	}
 
 
+
+	
 	@CrossOrigin
-	@GetMapping("/customer/{id}")
-	public ResponseEntity<Customer> getcustomerById(@PathVariable(value = "id") Long customerId)
+	@GetMapping("/users/{id}")
+	public ResponseEntity<Customer> getUsersById(@PathVariable(value = "id") Long usersId)
 			throws ResourceNotFoundException {
-		Customer customer = customerRepository.findById(customerId)
-				.orElseThrow(() -> new ResourceNotFoundException("customer not found for this id :: " + customerId));
-		return ResponseEntity.ok().body(customer);
+		Customer users = usersRepository.findById(usersId)
+				.orElseThrow(() -> new ResourceNotFoundException("Users not found for this id :: " + usersId));
+		return ResponseEntity.ok().body(users);
 	}
 	
 	@CrossOrigin
-	@PostMapping("/customer")
-	public Customer createcustomer(@Valid @RequestBody Customer customer) {
+	@PostMapping("/users")
+	public Customer createUsers(@Valid @RequestBody Customer users) {
 
 
 		// test enskripsi password
 
-		String password=customer.getPassword(); 		
-		String encryptPwd = passwordEncoder.encode(password);
-		customer.setPassword(encryptPwd);
+		String password=users.getPassword(); 		
+//		String encryptPwd = passwordEncoder.encode(password);
+		users.setPassword(password);
 		// SET ROLE 
-		customer.setRoleUser("customer");
-		return customerRepository.save(customer);
+		users.setRole("customer");
+		return usersRepository.save(users);
 	}
 	
 	@CrossOrigin
-	@PutMapping("/customer/{id}")
-	public ResponseEntity<Customer> updatecustomer(@PathVariable(value = "id") Long customerId,
-			@Valid @RequestBody Customer customerDetails) throws ResourceNotFoundException {
-		Customer customer = customerRepository.findById(customerId)
-				.orElseThrow(() -> new ResourceNotFoundException("customer not found for this id :: " + customerId));
+	@PutMapping("/users/{id}")
+	public ResponseEntity<Customer> updateUsers(@PathVariable(value = "id") Long usersId,
+			@Valid @RequestBody Customer usersDetails) throws ResourceNotFoundException {
+		Customer users = usersRepository.findById(usersId)
+				.orElseThrow(() -> new ResourceNotFoundException("Users not found for this id :: " + usersId));
 
-		customer.setName(customerDetails.getName());
-		customer.setUserName(customerDetails.getUserName());
-		customer.setPassword(customerDetails.getPassword());
-		customer.setAlamat(customerDetails.getAlamat());
-		customer.setEmail(customerDetails.getEmail());
-		customer.setPhone(customerDetails.getPhone());
-		customer.setRoleUser(customerDetails.getRoleUser());
-		final Customer updatedcustomer = customerRepository.save(customer);
-		return ResponseEntity.ok(updatedcustomer);
+		users.setEmail(usersDetails.getEmail());
+		users.setLastName(usersDetails.getLastName());
+        users.setFirstName(usersDetails.getFirstName());
+        users.setEmail(usersDetails.getEmail());
+		users.setPassword(usersDetails.getPassword());
+		users.setRole(usersDetails.getRole());
+		final Customer updatedUsers = usersRepository.save(users);
+		return ResponseEntity.ok(updatedUsers);
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("/customer/{id}")
-	public Map<String, Boolean> deletecustomer(@PathVariable(value = "id") Long customerId)
+	@DeleteMapping("/users/{id}")
+	public Map<String, Boolean> deleteUsers(@PathVariable(value = "id") Long usersId)
 			throws ResourceNotFoundException {
-		Customer customer = customerRepository.findById(customerId)
-				.orElseThrow(() -> new ResourceNotFoundException("customer not found for this id :: " + customerId));
+		Customer users = usersRepository.findById(usersId)
+				.orElseThrow(() -> new ResourceNotFoundException("Users not found for this id :: " + usersId));
 
-		customerRepository.delete(customer);
+		usersRepository.delete(users);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
